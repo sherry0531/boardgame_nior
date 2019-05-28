@@ -72,7 +72,7 @@ def adjacent(person, board):
 
 	
 		
-class killer(player):
+class killer:
 	def __init__(self, evidence_deck):
 		self.name = input("Welcome ! Please enter your name: ")
 		self.identity = evidence_deck.pop(0)
@@ -165,5 +165,3 @@ class inspector:
 				print(f'Killer is not adjacent to {discard}')
 		return(evidence_deck, board)
 
-			
-					
