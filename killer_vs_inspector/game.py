@@ -32,9 +32,30 @@ class board:
 			print_board += '\n'
 		print(print_board)
 	
-	def shift(self):
-		pass
-
+	def shift(self, col_row, num, direction):
+		board = np.array(self.board)
+		self.show()
+		if col_row == 'row':
+			axis = 1
+		elif col_row == 'col':
+			axis = 0
+		else:
+			print(f'accepts row or col only but got {col_row}! Please re-enter!')
+			exit()
+		if direction == 'up' or direction == 'left':
+			direction = -1
+		elif direction == 'down' or direction == 'right':
+			direction = 1
+		else:
+			print(f'accepts up, down, left right only, but got {direct}. Please re-enter!')
+		board_mask = np.roll(board, direction, axis)
+		if col_row = 'col':
+			for row_num in board.shape[0]:
+				board[row_num][num] = board_mask[row_num][num]
+		elif col_row = 'row':
+			for col_num in board.shape[1]:
+				board[num][col_num] = board_mask[num][col_num]	
+			
 	def collapse(self):
 		pass
 		
