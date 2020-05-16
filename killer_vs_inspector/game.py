@@ -2,8 +2,8 @@ import string, random
 import numpy as np
 
 # init evidence_deck
-self.evidence_deck = list(string.ascii_lowercase[0:-1])
-random.shuffle(self.evidence_deck)
+evidence_deck = list(string.ascii_lowercase[0:-1])
+random.shuffle(evidence_deck)
 
 
 class board:
@@ -49,10 +49,10 @@ class board:
 		else:
 			print(f'accepts up, down, left right only, but got {direct}. Please re-enter!')
 		board_mask = np.roll(board, direction, axis)
-		if col_row = 'col':
+		if col_row == 'col':
 			for row_num in board.shape[0]:
 				board[row_num][num] = board_mask[row_num][num]
-		elif col_row = 'row':
+		elif col_row == 'row':
 			for col_num in board.shape[1]:
 				board[num][col_num] = board_mask[num][col_num]	
 			
@@ -163,7 +163,7 @@ class inspector:
 			print('Attempted to accuse a suspect that is not adjacent to inspector! Please choose adjacent suspect to accuse')
 			accused_suspect = self.accuse(board, killer)
 		if ('dead' in accused_suspect)|('innocent' in accused_suspect):
-			print("Attempted to accuse a dead or innocent suspect! Please choose a different adjacent suspect from %s .' % ([person for row in board for person in row])
+			print('Attempted to accuse a dead or innocent suspect! Please choose a different adjacent suspect from %s .' % ([person for row in board for person in row]))
 			accused_suspect = self.accuse(board, killer)
 		if accused_suspect == killer:
 			print('Killer accused! Inspector win!')
